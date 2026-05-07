@@ -1,0 +1,24 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.tairasoul.stratum.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixinextras": {
+    "minVersion": "0.5.4"
+  },
+  "mixins": [
+    "BlockStateBaseMixin",
+    "LevelMixin",
+    "EntityMixin",
+    "BlockGetterMixin",
+    "BlockCollisionsMixin",
+    "LightEngineMixin",
+    "LivingEntityMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

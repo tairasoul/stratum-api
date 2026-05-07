@@ -1,0 +1,27 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.tairasoul.stratum.mixin.client",
+  "compatibilityLevel": "JAVA_21",
+  "mixinextras": {
+    "minVersion": "0.5.4"
+  },
+  "client": [
+    "RenderSectionRegionMixin",
+    "LevelRendererMixin",
+    "ScreenEffectRendererMixin",
+    "ClientChunkCache$StorageMixin",
+    "ClientChunkCacheMixin",
+    "CameraMixin",
+    "DebugRendererMixin",
+    "ClientLevelMixin",
+    "LevelEventHandlerMixin",
+    "MultiPlayerGameModeMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

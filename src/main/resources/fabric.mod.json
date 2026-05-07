@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "stratum-api",
+  "version": "${version}",
+  "name": "stratum-api",
+  "description": "API to allow for \"layering\" blocks onto the world.",
+  "authors": ["tairasoul"],
+  "contact": {},
+  "license": "Unlicense",
+  "accessWidener": "stratum-api.classtweaker",
+  "icon": "assets/stratum-api/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "dev.tairasoul.stratum.client.StratumClient"
+    ],
+    "main": [
+      "dev.tairasoul.stratum.Stratum"
+    ]
+  },
+  "mixins": [
+    "stratum-api.mixins.json",
+    {
+      "config": "stratum-api.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-language-kotlin": ">=${kotlin_loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
