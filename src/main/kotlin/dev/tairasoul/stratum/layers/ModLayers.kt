@@ -11,7 +11,7 @@ object ModLayers {
 
 	fun initialize() {}
 
-	fun <T: Layer> register(name: String, factory: LayerFactory<T>): LayerFactory<T> {
+	private fun <T: Layer> register(name: String, factory: LayerFactory<T>): LayerFactory<T> {
 		val layerKey =
 			ResourceKey.create(Stratum.LAYER_REGISTRY.key(), Identifier.fromNamespaceAndPath(Stratum.MOD_ID, name))
 
