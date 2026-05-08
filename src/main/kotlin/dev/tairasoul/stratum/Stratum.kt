@@ -40,7 +40,8 @@ class Stratum : ModInitializer {
 
 	override fun onInitialize() {
 		ModLayers.initialize()
-		ModItems.initialize()
+		if (FabricLoader.getInstance().isDevelopmentEnvironment)
+			ModItems.initialize()
 		Packets.register()
 		ServerLifecycleEvents.SERVER_STARTED.register {
 			val registry = it.registryAccess()
