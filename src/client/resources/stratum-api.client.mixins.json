@@ -13,10 +13,10 @@
     "ClientChunkCache$StorageMixin",
     "ClientChunkCacheMixin",
     "CameraMixin",
-    "DebugRendererMixin",
     "ClientLevelMixin",
     "LevelEventHandlerMixin",
-    "MultiPlayerGameModeMixin"
+    "MultiPlayerGameModeMixin",
+    "sodium.LevelSliceMixin"
   ],
   "injectors": {
     "defaultRequire": 1

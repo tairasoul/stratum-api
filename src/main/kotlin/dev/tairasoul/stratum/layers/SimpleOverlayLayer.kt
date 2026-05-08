@@ -7,10 +7,6 @@ open class SimpleOverlayLayer(level: LayeredWorld) : Layer(level) {
 		return true
 	}
 
-	override fun tickServer() {
-		sync()
-	}
-
 	override fun key(): LayerFactory<*> {
 		return ModLayers.SIMPLE_OVERLAY_LAYER
 	}

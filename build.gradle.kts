@@ -56,9 +56,9 @@ dependencies {
 	modImplementation("net.fabricmc:fabric-language-kotlin:${project.property("kotlin_loader_version")}")
 
 	modImplementation("net.fabricmc.fabric-api:fabric-api:${project.property("fabric_version")}")
-	modRuntimeOnly("maven.modrinth:packet-fixer:XsMMpmvW")
 	modRuntimeOnly("maven.modrinth:spark:1.10.170-fabric")
 	modRuntimeOnly("maven.modrinth:fabric-permissions-api:0.6.1")
+	modImplementation("maven.modrinth:sodium:mc1.21.11-0.8.11-fabric")
 }
 
 tasks.processResources {

@@ -40,7 +40,7 @@ public abstract class EntityMixin {
 	public BlockState stratum$replaceBlockStateInWall(BlockState original, @Local(argsOnly = true) BlockPos pos) {
 		AtomicReference<BlockState> state = new AtomicReference<>(original);
 		MixinReplacementMethods.stratum$iterate(level, (layer) -> {
-			var intercept = layer.interceptEffects(blockPosition, original);
+			var intercept = layer.interceptCollide(blockPosition, original);
 			if (intercept.getType() == InterceptType.MODIFY) {
 				var s = intercept.getState();
 				if (s != null)

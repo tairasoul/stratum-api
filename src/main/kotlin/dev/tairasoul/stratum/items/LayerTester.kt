@@ -46,13 +46,13 @@ class LayerTester(properties: Properties) : Item(properties) {
 //		}
 //		return InteractionResult.FAIL
 //	}
-//
+
 //	override fun useOn(useOnContext: UseOnContext): InteractionResult {
 //		if (useOnContext.level.isClientSide) return InteractionResult.PASS
 //		val block = useOnContext.clickedPos
 //		val layers = (useOnContext.level as LayeredWorld).`stratum$getLayers`()
 //		val overlay = layers.getOrCreateTyped(ModLayers.SIMPLE_OVERLAY_LAYER)
-//		overlay.set(block, Blocks.DIRT.defaultBlockState())
+//		overlay.set(block, Blocks.WATER.defaultBlockState())
 //		return InteractionResult.SUCCESS_SERVER
 //	}
 

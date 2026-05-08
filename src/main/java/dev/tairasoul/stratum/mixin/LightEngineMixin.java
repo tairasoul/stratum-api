@@ -27,7 +27,7 @@ public class LightEngineMixin {
 		var level = chunkSource.getLevel();
 		if (level instanceof Level lvl) {
 			MixinReplacementMethods.stratum$iterate(lvl, (layer) -> {
-				var intercept = layer.interceptLight(blockPos, null);
+				var intercept = layer.interceptLight(blockPos, lvl.getBlockState(blockPos));
 				if (intercept.getType() == InterceptType.MODIFY) {
 					var s = intercept.getState();
 					if (s != null)

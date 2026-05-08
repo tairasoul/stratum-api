@@ -37,7 +37,7 @@ public class BlockStateBaseMixin {
 		if (getCollisionShapeSkip) return;
 		if (blockGetter instanceof LayeredWorld layered) {
 			MixinReplacementMethods.stratum$iterate(layered, (layer) -> {
-				var inter = layer.interceptCollide(blockPos, null);
+				var inter = layer.interceptCollide(blockPos, blockGetter.getBlockState(blockPos));
 				if (inter.getType() != InterceptType.PASSTHROUGH) {
 					getCollisionShapeSkip = true;
 					var s = inter.getState();
@@ -55,7 +55,7 @@ public class BlockStateBaseMixin {
 		if (getVisualShapeSkip) return;
 		if (blockGetter instanceof LayeredWorld layered) {
 			MixinReplacementMethods.stratum$iterate(layered, (layer) -> {
-				var inter = layer.interceptRender(blockPos, null);
+				var inter = layer.interceptRender(blockPos, blockGetter.getBlockState(blockPos));
 				if (inter.getType() != InterceptType.PASSTHROUGH) {
 					getVisualShapeSkip = true;
 					var s = inter.getState();
@@ -74,7 +74,7 @@ public class BlockStateBaseMixin {
 		if (getInteractionShapeSkip) return;
 		if (blockGetter instanceof LayeredWorld layered) {
 			MixinReplacementMethods.stratum$iterate(layered, (layer) -> {
-				var inter = layer.interceptInteract(blockPos, null);
+				var inter = layer.interceptInteract(blockPos, blockGetter.getBlockState(blockPos));
 				if (inter.getType() != InterceptType.PASSTHROUGH) {
 					getInteractionShapeSkip = true;
 					var s = inter.getState();
@@ -91,7 +91,7 @@ public class BlockStateBaseMixin {
 	@Inject(at = @At("HEAD"), method = "useWithoutItem", cancellable = true)
 	void stratum$blockStateBase$useWithoutItem(Level level, Player player, BlockHitResult blockHitResult, CallbackInfoReturnable<InteractionResult> cir) {
 		MixinReplacementMethods.stratum$iterate(level, (layer) -> {
-			var inter = layer.interceptInteract(blockHitResult.getBlockPos(), null);
+			var inter = layer.interceptInteract(blockHitResult.getBlockPos(), level.getBlockState(blockHitResult.getBlockPos()));
 			if (inter.component1() == InterceptType.BLOCK) {
 				cir.setReturnValue(InteractionResult.PASS);
 				return true;

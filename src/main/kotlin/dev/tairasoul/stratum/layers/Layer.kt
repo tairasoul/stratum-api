@@ -67,7 +67,7 @@ abstract class Layer(val level: LayeredWorld) {
 	}
 
 	open fun interceptInteract(pos: BlockPos, state: BlockState?): InterceptedState {
-		return InterceptedState(InterceptType.MODIFY, null)
+		return InterceptedState(InterceptType.BLOCK, null)
 	}
 
 	open fun set(pos: BlockPos, state: BlockState) {
@@ -183,7 +183,7 @@ abstract class Layer(val level: LayeredWorld) {
 	}
 
 	open fun tickServer() {
-
+		sync()
 	}
 
 	open fun shouldTickClient(): Boolean {

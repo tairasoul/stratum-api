@@ -11,6 +11,7 @@ import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents
 import net.fabricmc.fabric.api.event.registry.FabricRegistryBuilder
 import net.fabricmc.fabric.api.event.registry.RegistryAttribute
+import net.fabricmc.loader.api.FabricLoader
 import net.minecraft.core.Registry
 import net.minecraft.core.RegistryAccess
 import net.minecraft.nbt.NbtOps
@@ -26,6 +27,9 @@ class Stratum : ModInitializer {
 		const val MOD_ID = "stratum-api"
 
 		val LOGGER = LoggerFactory.getLogger(MOD_ID)
+
+		@JvmStatic
+		val SODIUM_PRESENT = FabricLoader.getInstance().isModLoaded("sodium")
 
 		@JvmStatic
 		val LAYER_REGISTRY: Registry<LayerFactory<*>> = FabricRegistryBuilder

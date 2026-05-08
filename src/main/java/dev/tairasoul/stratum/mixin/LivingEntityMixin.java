@@ -30,7 +30,7 @@ public class LivingEntityMixin {
 		var lvl = ((Entity)(Object)this).level();
 		AtomicReference<BlockState> state = new AtomicReference<>(original);
 		MixinReplacementMethods.stratum$iterate(lvl, (layer) -> {
-			var intercept = layer.interceptEffects(posBelow, original);
+			var intercept = layer.interceptRender(posBelow, original);
 			if (intercept.getType() == InterceptType.MODIFY) {
 				var s = intercept.getState();
 				if (s != null)

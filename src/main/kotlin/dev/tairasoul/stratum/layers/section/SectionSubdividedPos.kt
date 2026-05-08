@@ -16,9 +16,6 @@ data class SectionSubdividedPos(val x: Int, val y: Int, val z: Int) {
 		) { y, x, z -> SectionSubdividedPos(x, y, z) }
 
 		@JvmStatic
-		val INVALID_SECTION_POS = asLong(134217727, 1023, 134217727)
-
-		@JvmStatic
 		fun from(pos: BlockPos): SectionSubdividedPos {
 			val x = Math.floorDiv(pos.x, 4)
 			val y = Math.floorDiv(pos.y, 4)

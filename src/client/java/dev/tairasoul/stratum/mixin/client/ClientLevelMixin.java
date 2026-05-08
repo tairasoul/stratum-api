@@ -42,7 +42,7 @@ public class ClientLevelMixin {
 	void stratum$clientLevel$doAnimateTick(int i, int j, int k, int l, RandomSource randomSource, Block block, BlockPos.MutableBlockPos mutableBlockPos, CallbackInfo ci) {
 		var level = (Level)(Object)this;
 		MixinReplacementMethods.stratum$iterate(level, (layer) -> {
-			var intercept = layer.interceptRender(mutableBlockPos, null);
+			var intercept = layer.interceptRender(mutableBlockPos, level.getBlockState(mutableBlockPos));
 			if (intercept.getType() != InterceptType.PASSTHROUGH) {
 				ci.cancel();
 				return true;
