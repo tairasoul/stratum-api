@@ -26,11 +26,6 @@ class Stratum : ModInitializer {
 	companion object {
 		const val MOD_ID = "stratum-api"
 
-		val LOGGER = LoggerFactory.getLogger(MOD_ID)
-
-		@JvmStatic
-		val SODIUM_PRESENT = FabricLoader.getInstance().isModLoaded("sodium")
-
 		@JvmStatic
 		val LAYER_REGISTRY: Registry<LayerFactory<*>> = FabricRegistryBuilder
 			.createSimple(ResourceKey.createRegistryKey<LayerFactory<*>>(Identifier.fromNamespaceAndPath(MOD_ID, "layer-registry")))

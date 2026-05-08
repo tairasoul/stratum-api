@@ -22,7 +22,7 @@ public class RenderSectionRegionMixin {
 	@Inject(at = @At("HEAD"), method = "getBlockState", cancellable = true)
 	void stratum$getBlockState(BlockPos blockPos, CallbackInfoReturnable<BlockState> cir) {
 		MixinReplacementMethods.stratum$iterate(level, (layer) -> {
-			var intercept = layer.interceptCollide(blockPos, level.getBlockState(blockPos));
+			var intercept = layer.interceptRender(blockPos, level.getBlockState(blockPos));
 			if (intercept.getType() == InterceptType.MODIFY) {
 				var s = intercept.getState();
 				if (s != null)
