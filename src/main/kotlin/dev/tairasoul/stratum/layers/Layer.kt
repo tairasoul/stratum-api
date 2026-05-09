@@ -101,9 +101,9 @@ abstract class Layer(val level: LayeredWorld) {
 			if (!level.isClientSide) {
 				val s = getTrackedBlocks()
 				val le = level.lightEngine
-				for (x in -1..4) {
-					for (y in -1..4) {
-						for (z in -1..4) {
+				for (x in 0..3) {
+					for (y in 0..3) {
+						for (z in 0..3) {
 							val pos = origin.offset(x, y, z)
 							le.checkBlock(pos)
 							s.untrack(pos)
