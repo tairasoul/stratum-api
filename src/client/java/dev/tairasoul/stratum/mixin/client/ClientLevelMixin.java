@@ -8,6 +8,7 @@ import dev.tairasoul.stratum.forwarded_mixins.MixinReplacementMethods;
 import dev.tairasoul.stratum.layers.intercept.InterceptType;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -52,7 +53,7 @@ public class ClientLevelMixin {
 	}
 
 	@Definition(id = "getBlockState", method = "Lnet/minecraft/client/multiplayer/ClientLevel;getBlockState(Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/block/state/BlockState;")
-	@Definition(id = "blockPos", local = @Local(type = BlockPos.class, name = "blockPos", argsOnly = true))
+	@Definition(id = "blockPos", local = @Local(type = BlockPos.class, argsOnly = true))
 	@Expression("this.getBlockState(blockPos)")
 	@ModifyExpressionValue(
 					at = @At("MIXINEXTRAS:EXPRESSION"),

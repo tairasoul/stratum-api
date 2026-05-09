@@ -27,7 +27,7 @@ public class MultiPlayerGameModeMixin {
 	@Definition(id = "minecraft", field = "Lnet/minecraft/client/multiplayer/MultiPlayerGameMode;minecraft:Lnet/minecraft/client/Minecraft;")
 	@Definition(id = "level", field = "Lnet/minecraft/client/Minecraft;level:Lnet/minecraft/client/multiplayer/ClientLevel;")
 	@Definition(id = "getBlockState", method = "Lnet/minecraft/client/multiplayer/ClientLevel;getBlockState(Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/block/state/BlockState;")
-	@Definition(id = "blockPos", local = @Local(type = BlockPos.class, name = "blockPos", argsOnly = true))
+	@Definition(id = "blockPos", local = @Local(type = BlockPos.class, argsOnly = true))
 	@Expression("this.minecraft.level.getBlockState(blockPos)")
 	@ModifyExpressionValue(
 					at = @At("MIXINEXTRAS:EXPRESSION"),
